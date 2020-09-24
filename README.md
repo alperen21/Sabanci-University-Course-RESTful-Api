@@ -2,18 +2,18 @@
 
 ## EN
 
-## Background
+### Background
 Hello,
 
   I am a rising Sophomore Computer Science student. This project was created as a precursor to another, project. I had to scrape course data from the website of the university but due to dynamic nature of the website, it was very challenging for me to extract information from the website. Because of that, I decided to create a RESTful Api to help other novice computer science students who want to develop projects about offered courses so that they do not have to scrape the data themselves.
 
   The information is stored within a JSON file and Rest Api serves the portion of the data the user needs. The project has been developed with a custom scraping algorithm I wrote and the api is written using Flask-Restful. The active api can be accessed here http://sabancicourseapi.pythonanywhere.com/
   
-## How To Use The API?
+### How To Use The API?
 
   Homepage of the url will return a "hello json" file. In order to access the data use url end point template course/course_name. This will return a JSON file that can be easily converted into a nested list. The list will contain several other list, each list symbolizes a section. Each section list will also contain several dictionaries, each dictionary corresponds to one lecture block / hour except the last one, the last dictionary always corresponds to CRN of that section. for example, if a course has 2 lectures on monday and tuesday, the list will contain three dictionaries: the first one corresponds to the monday lecture, the second one corresponds to the tuesday lecture and the third and final one will contain the CRN. Each lecture dictionary contains information about the hour and the day in which the lecture will take place.
   
- ## Example
+ ### Example
   
   For example, in order to access information about class IF 100, one must follow the link: http://sabancicourseapi.pythonanywhere.com/course/cs_201
  As you can see the JSON response Looks like this:
