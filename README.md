@@ -1,4 +1,4 @@
-# Sabanci-University-Course-RESTful-Api
+# Flask-RESTful Api for Sabanci University Courses
 
 ## EN
 
