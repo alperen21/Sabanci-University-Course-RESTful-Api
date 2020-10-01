@@ -1,6 +1,6 @@
 # Flask-RESTful Api for Sabanci University Courses
 
-## EN
+
 
 ### Background
 Hello,
