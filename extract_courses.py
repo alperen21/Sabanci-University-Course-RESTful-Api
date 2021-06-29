@@ -1,12 +1,8 @@
-from app import course
 from bs4 import BeautifulSoup
 import requests
 import re
-import sqlite3
-from datetime import time
 from datetime import datetime
-import contextlib
-from sqlalchemy import Column, Integer, String,create_engine, insert, ForeignKey, Time, MetaData
+from sqlalchemy import Column, Integer, String,create_engine, ForeignKey, Time
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.sql import text
 
