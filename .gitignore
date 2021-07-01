@@ -1,4 +1,4 @@
 start.sh
-environments/production
+environments/*
 courses.db-journal
 courses.db

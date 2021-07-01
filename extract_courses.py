@@ -1,10 +1,13 @@
+#!/usr/bin/env python
 from bs4 import BeautifulSoup
 import requests
 import re
+import sys
 from datetime import datetime
 from sqlalchemy import Column, Integer, String,create_engine, ForeignKey, Time
 from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy.sql import text
+from datetime import date
 
 engine = create_engine('sqlite:///courses.db', echo=True)
 Base = declarative_base()
@@ -216,3 +219,40 @@ def parse(response):
     session.close()
             
         
+if __name__ == "__main__":
+    
+    if (len(sys.argv) < 3):
+        print("not enough arguments are given")
+        sys.exit(1)
+
+    term_to_number = {
+        "fall":"01",
+        "spring":"02",
+        "summer":"03",
+        "01":"01",
+        "02":"02",
+        "03":"03"
+    }
+
+    try:
+        term = term_to_number[sys.argv[1].lower()]
+        year = sys.argv[2]
+    except Exception:
+        print("invalid term argument")
+        sys.exit(1)
+    
+    if ((not year.isdecimal()) or (int(year) < 2000) or (int(year) > date.today().year)):
+        print("invalid year argument")
+        sys.exit(1)
+    
+    try:
+        print("request is being sent to the server")
+        response = make_request(year+term)
+        print("response has been received")
+        print("parsing information")
+        parse(response)
+        print("done!")
+        sys.exit(0)
+    except Exception as e:
+        print("something went wrong...")
+        print(e)
