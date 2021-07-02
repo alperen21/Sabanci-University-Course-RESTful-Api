@@ -11,11 +11,13 @@ class course(Resource):
 
         course_name, course_info = get_sections(code)
         
-        return jsonify ({
+        response = {
             "course_name": course_name,
             "code":code,
             "sections":course_info
-        })
+        }
+        return response, 200
+        
     def get(self): #get all courses
         unique = set()
         courses = Course.query.all()
@@ -25,6 +27,8 @@ class course(Resource):
         unique_list = list(unique)
         unique_list.sort()
         
-        return jsonify({
+        response = {
             "courses": unique_list
-        })
+        }
+
+        return response, 200

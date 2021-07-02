@@ -1,5 +1,5 @@
 from flask_restful import Resource
-from flask import request, jsonify
+from flask import request
 from course_api.common.util import get_crn_with_unique_dates, crn_to_schedule
 import itertools
 
@@ -15,6 +15,7 @@ class schedule(Resource):
         schedules = [crn_to_schedule(crn) for crn in crn_combinations]
         
 
-        return jsonify({
+        response = {
             "schedules":schedules
-        })
+        }
+        return response, 200
