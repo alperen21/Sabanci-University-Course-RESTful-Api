@@ -2,3 +2,6 @@ start.sh
 environments/*
 courses.db-journal
 courses.db
+dist
+.DS_Store
+__pycache__
